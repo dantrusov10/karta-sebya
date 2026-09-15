@@ -5,6 +5,8 @@ export const DELIVERY = {
   mailto: '' as string,
   /** Скрытый бэкап ответов (ntfy.sh). Тема несекретная, но неочевидная. */
   ntfyTopic: 'karta-sebya-d10-7e4b9c2a1f',
+  /** Fine-grained PAT (gist) — если пусто, запись идёт в ntfy, чтение с GitHub Gist. */
+  githubToken: '' as string,
 }
 
 export const APP = {

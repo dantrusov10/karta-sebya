@@ -7,9 +7,10 @@ interface Props {
   onContinue: () => void
   hasProgress: boolean
   percent: number
+  cloudReady?: boolean
 }
 
-export function Welcome({ onStart, onContinue, hasProgress, percent }: Props) {
+export function Welcome({ onStart, onContinue, hasProgress, percent, cloudReady = true }: Props) {
   return (
     <motion.section
       className="shell welcome"
@@ -37,7 +38,8 @@ export function Welcome({ onStart, onContinue, hasProgress, percent }: Props) {
         <h1>Найдём, куда тебе тепло</h1>
         <p className="lede welcome-lede">
           {APP.subtitle}. Три части про то, как ты устроена и куда тянет — не про старое резюме.
-          Ответы сохраняются на этом телефоне после каждого шага.
+          Ответы сами сохраняются в облако: можно закрыть и продолжить с любого телефона по этой же
+          ссылке.
         </p>
 
         <p className="welcome-parts" aria-label="Три части">
@@ -53,7 +55,9 @@ export function Welcome({ onStart, onContinue, hasProgress, percent }: Props) {
         </p>
 
         <div className="welcome-actions">
-          {hasProgress ? (
+          {!cloudReady ? (
+            <p className="lede welcome-lede">Достаю сохранённые ответы…</p>
+          ) : hasProgress ? (
             <>
               <button type="button" className="btn primary" onClick={onContinue}>
                 Продолжить · {percent}%

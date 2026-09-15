@@ -1,0 +1,15 @@
+{
+  "type": "karta-state",
+  "savedAt": null,
+  "state": {
+    "version": 7,
+    "startedAt": null,
+    "updatedAt": null,
+    "completedAt": null,
+    "currentIndex": 0,
+    "answers": {},
+    "otherTexts": {},
+    "sessionBreakSeen": [],
+    "loveNotesShown": 0
+  }
+}

@@ -21,6 +21,7 @@ import {
   saveState,
 } from './lib/storage'
 import { backupAnswers } from './lib/backup'
+import { pullCloud, pushCloud, isUsableState, normalizeState } from './lib/cloud'
 import { deliverResults } from './lib/export'
 import type { AnswerValue, InterviewExport, InterviewState } from './types'
 
@@ -109,6 +110,7 @@ export default function App() {
   })
   const [exportData, setExportData] = useState<InterviewExport | null>(() => loadExport())
   const [dir, setDir] = useState(1)
+  const [cloudReady, setCloudReady] = useState(false)
 
   const stateRef = useRef(state)
   stateRef.current = state
@@ -121,19 +123,50 @@ export default function App() {
   )
   const canContinue = hasUnfinishedProgress(state)
 
+  // Подтянуть ответы с GitHub / облака — чтобы продолжить с другого телефона
+  useEffect(() => {
+    let cancelled = false
+    void (async () => {
+      try {
+        const cloud = await Promise.race([
+          pullCloud(),
+          new Promise<null>((resolve) => window.setTimeout(() => resolve(null), 8000)),
+        ])
+        if (cancelled || !cloud || !isUsableState(cloud)) return
+        const local = stateRef.current
+        const cloudTime = Date.parse(cloud.updatedAt || '') || 0
+        const localTime = Date.parse(local.updatedAt || '') || 0
+        const cloudHas = Object.keys(cloud.answers || {}).length > 0 || Boolean(cloud.completedAt)
+        if (!cloudHas) return
+        if (cloudTime >= localTime || !hasUnfinishedProgress(local)) {
+          const next = normalizeState(cloud)
+          setState(next)
+          saveState(next)
+        }
+      } finally {
+        if (!cancelled) setCloudReady(true)
+      }
+    })()
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
   // Автосохранение на каждом изменении (ответ, индекс, послания…)
   useEffect(() => {
     saveState(state)
   }, [state])
 
-  // Тихий бэкап на сервер, чтобы ответы не жили только в телефоне
+  // Тихий бэкап: телефон + GitHub/облако
   useEffect(() => {
     if (stats.answeredCount < 1) return
     const t = window.setTimeout(() => {
-      void backupAnswers(buildExport(stateRef.current), 'progress')
-    }, 8000)
+      const snap = stateRef.current
+      void backupAnswers(buildExport(snap), 'progress')
+      void pushCloud(snap)
+    }, 2500)
     return () => window.clearTimeout(t)
-  }, [stats.answeredCount])
+  }, [stats.answeredCount, state.currentIndex])
 
   // Доп. страховка: при сворачивании / закрытии вкладки
   useEffect(() => {
@@ -209,6 +242,7 @@ export default function App() {
     const data = buildExport(nextState)
     persistExport(data)
     setExportData(data)
+    void pushCloud(nextState)
     const status = await deliverResults(data, { autoShare: false })
     setDeliveryStatus(status)
     setScreen('complete')
@@ -303,8 +337,10 @@ export default function App() {
   }
 
   const saveAndExit = () => {
-    saveState(stateRef.current)
-    setToast('Сохранено. Можно закрыть — потом продолжишь с этого же места')
+    const snap = stateRef.current
+    saveState(snap)
+    void pushCloud(snap)
+    setToast('Сохранено в облако. Можно закрыть — с любого телефона откроешь ту же ссылку')
     setScreen('welcome')
     window.location.hash = 'welcome'
   }
@@ -312,9 +348,11 @@ export default function App() {
   const startFresh = () => {
     if (canContinue && !confirm('Начать заново и стереть текущие ответы?')) return
     clearState()
-    setState(createInitialState())
+    const fresh = createInitialState()
+    setState(fresh)
     setExportData(null)
     setGate(null)
+    void pushCloud(fresh, { force: true })
     setScreen('interview')
     window.location.hash = 'interview'
   }
@@ -342,6 +380,7 @@ export default function App() {
               onContinue={continueInterview}
               hasProgress={canContinue}
               percent={stats.percent}
+              cloudReady={cloudReady}
             />
           )}
 

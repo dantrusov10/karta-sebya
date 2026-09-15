@@ -4,7 +4,9 @@
 
 **Ссылка для прохождения:** https://dantrusov10.github.io/karta-sebya/
 
-Ответы пишутся в браузер телефона и тихо копируются в ящик: https://ntfy.sh/karta-sebya-d10-7e4b9c2a1f
+Ответы сохраняются в облако (GitHub Gist + файл `answers/state.json`) — можно продолжить с любого телефона по той же ссылке.
+
+Ящик с копиями: https://ntfy.sh/karta-sebya-d10-7e4b9c2a1f
 
 ## Запуск локально
 
