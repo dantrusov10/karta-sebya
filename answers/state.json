@@ -1,15 +1,180 @@
 {
   "type": "karta-state",
-  "savedAt": null,
+  "savedAt": "2026-09-17T08:33:28.940Z",
   "state": {
     "version": 7,
-    "startedAt": null,
-    "updatedAt": null,
-    "completedAt": null,
+    "startedAt": "2026-09-15T19:02:21.966Z",
+    "updatedAt": "2026-09-17T08:33:28.940Z",
+    "completedAt": "2026-09-17T08:33:28.940Z",
     "currentIndex": 0,
-    "answers": {},
+    "answers": {
+      "s1_name_feel": "Света",
+      "s1_mood": "hope",
+      "s1_worry_level": 4,
+      "s1_why_now": [
+        "self",
+        "identity",
+        "example"
+      ],
+      "s1_home_feel": 3,
+      "s1_free_hours": "h8",
+      "s1_best_time": [
+        "nap"
+      ],
+      "s1_support": 4,
+      "s1_pressure": 1,
+      "s1_drive_style": "order",
+      "s1_decision_style": "list",
+      "s1_novelty": "mix",
+      "s1_visibility": "backstage",
+      "s1_feedback_need": "often",
+      "s1_structure_need": "clear",
+      "s1_drain_triggers": [
+        "boring",
+        "pressure_sales",
+        "fake",
+        "unclear",
+        "conflict"
+      ],
+      "s1_fuel_bits": [
+        "order",
+        "care",
+        "explain",
+        "pick",
+        "visual"
+      ],
+      "s1_people_charge": 3,
+      "s1_alone_work": 5,
+      "s1_chaos": 2,
+      "s1_routine": 4,
+      "s1_aesthetics": 4,
+      "s1_care": 3,
+      "s1_control": 5,
+      "s1_teaching": 4,
+      "s1_sales_feel": 1,
+      "s1_conflict": 1,
+      "s1_body_work": 5,
+      "s1_precision": 5,
+      "s1_environment": "mix",
+      "s1_crisis": 4,
+      "s1_stakes": 2,
+      "s1_living_systems": 5,
+      "s1_abstract": 2,
+      "s1_protect": 5,
+      "s1_values": [
+        "meaning",
+        "calm",
+        "money",
+        "people",
+        "growth",
+        "freedom",
+        "beauty",
+        "status"
+      ],
+      "s1_nonnegotiable": "Токсичная обстановка в коллективе, постоянные конфликты, любые виды обмана/мошенничества, поиск клиентов и холодные продажи, выполнение плана продаж \"любой ценой\".",
+      "s2_learn_style": "read",
+      "s2_study_horizon": "half_year",
+      "s2_interest_clusters": [
+        "listen",
+        "heal_care",
+        "help_calm",
+        "make_beauty",
+        "shape_space",
+        "craft",
+        "grow_living"
+      ],
+      "s2_rabbit_holes": "В выбор вещей для кого-то из семьи (одежда, обувь, игрушки, подарки) или для дома (мебель, декор). В уборку, разбор шкафов, наведение порядка. В просмотр рилсов (темы: воспитание детей, психология, отношения, здоровье) и чтение комментариев под ними. ",
+      "s2_wild_pull": "Откликается работа профайлера в детективных сериалах: он составляет психологический портрет маньяка, представляет его команде, консультирует походу расследования на предмет совпадения портрета с подозреваемым, в остальное время неизвестно чем занимается😄 Всегда выглядит круто, имеет проницательный взгляд, говорит уверенно и убедительно)))",
+      "s2_hands_vs_head": "mix",
+      "s2_create_vs_support": "support",
+      "s2_hard_ok": [
+        "stand_long",
+        "weather",
+        "heavy_body",
+        "exams"
+      ],
+      "s2_start_path": "short_course",
+      "s2_strengths_self": [
+        "taste_detail",
+        "explain",
+        "duty",
+        "learn_fast"
+      ],
+      "s2_strengths_others": "За ответственность, внимательность, структурность, за то, что быстро схватываю суть, за отзывчивое и доброжелательное отношение.",
+      "s2_weak_ok": [
+        "code",
+        "cold",
+        "public",
+        "conflict"
+      ],
+      "s2_skills_rate_writing": 5,
+      "s2_skills_rate_talk": 4,
+      "s2_skills_rate_pc": 5,
+      "s2_english": "work",
+      "s2_learn_en": 1,
+      "s2_remote_feel": 4,
+      "s2_hybrid_feel": 5,
+      "s2_schedule": "part",
+      "s2_alone_or_team": "small",
+      "s2_risk": "tiny",
+      "s2_anxiety_trigger": [
+        "gap",
+        "compare",
+        "age"
+      ],
+      "s3_dream_day": "Понятия не имею, где и что делаю. С кем? С такими же ответственными людьми, с которыми мне комфортно общаться и делать общее дело. Как себя чувствую? Хотелось бы ощущать себя на своем месте.",
+      "s3_dream_custom": "На прошлых местах работы мне нравилось заниматься обучением, но не на большую аудиторию, а индивидуальным или совсем в маленькой группе. Поэтому профессии, связанные с обучением и наставничеством, кажутся мне привлекательными. Так же, как профессии, связанные с психологией. И в целом откликается деятельность, которая приносит помощь и пользу людям. Несмотря на то, что я интроверт, и не хочу на постоянной основе общаться с большим количеством людей. Но дозированного и содержательного общения хочется.",
+      "s3_segment_pull": [
+        "teach_guide",
+        "listen_psy",
+        "help_people"
+      ],
+      "s3_anti_jobs": [
+        "cold_sales",
+        "kitchen",
+        "night",
+        "mlm",
+        "hard_beauty",
+        "callcenter"
+      ],
+      "s3_own_project": 2,
+      "s3_own_ideas": "Никаких",
+      "s3_own_fear": [
+        "idea",
+        "money",
+        "sales"
+      ],
+      "s3_job_vs_project": "explore",
+      "s3_money_need": "full80",
+      "s3_budget_course": "25k",
+      "s3_curiosity_themes": [
+        "psyche",
+        "human_body",
+        "kids_dev",
+        "space_form",
+        "teach_learn",
+        "materials",
+        "words",
+        "surprise"
+      ],
+      "s3_curiosity_open": "Ничего не всплывает",
+      "s3_course_avoid": "Предлагать можно всё",
+      "s3_success_3m": [
+        "routine"
+      ],
+      "s3_success_year": "Закончила учебу и начала работать в новом направлении (даже в формате подработки с частичной занятостью)",
+      "s3_impact": "ease",
+      "s3_feeling_role": "host",
+      "s3_partner_help": "Хитрюга😄 Расскажу мужу лично)))",
+      "s3_open_letter": "Желаю тебе верить в себя, не бояться и не сдаваться при первых сложностях",
+      "s3_anything_else": "У меня неустойчивая самооценка, поэтому я сильно завишу от мнения окружающих. Мне сложно понять, чего действительно хочу я сама. Мне важна определенность и стабильность, понятная структура и четкие правила. ",
+      "s3_ready_send": "yes"
+    },
     "otherTexts": {},
-    "sessionBreakSeen": [],
+    "sessionBreakSeen": [
+      1,
+      2
+    ],
     "loveNotesShown": 0
   }
 }
